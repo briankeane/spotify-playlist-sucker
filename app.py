@@ -13,13 +13,11 @@ if not PORT:
   PORT = 5000
 
 if not MONGO_URL:
-    MONGO_URL = "mongodb://localhost:27017";
+    MONGO_URL = "mongodb://db:27017";
 
 
 ## Connect to Mongodb
-client = MongoClient(
-    'db',
-    27017)
+client = MongoClient(MONGO_URL)
 db = client.tododb
 
 
@@ -46,4 +44,4 @@ def new():
     return redirect(url_for('todo'))
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=True)
