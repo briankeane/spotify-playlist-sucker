@@ -1,6 +1,6 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
-import logging
+import asyncio
 
 class Spotify:
   def __init__(self):
@@ -14,3 +14,4 @@ class Spotify:
       if new_playlist:
         playlists[i] = { **playlist, **new_playlist }
     return playlists
+
